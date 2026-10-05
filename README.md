@@ -33,8 +33,39 @@ Python 3.9+ with `numpy`:
 python recolove_toolkit.py            # GUI
 python recolove_toolkit.py --help     # command line
 python build_addon.py                 # Blender add-on zip
-python build_release.py               # single-file .exe (needs PyInstaller + Pillow)
+python build_release.py               # single-file .exe (see below)
 ```
+
+## Building the .exe
+
+On Windows, with Python 3.9+ (from python.org, "Add python.exe to PATH" ticked):
+
+1. Install the build dependencies (once):
+   ```
+   python -m pip install numpy pyinstaller pillow
+   ```
+2. In this folder, run:
+   ```
+   python build_release.py
+   ```
+   or choose the output folder:
+   ```
+   python build_release.py "C:\path\to\output"
+   ```
+
+It takes a minute or two and creates (default folder: `Desktop\RecoLove Toolkit`):
+
+| file | |
+|---|---|
+| `RecoLoveToolkit.exe` | the single-file app (GUI + command line, Blender add-on embedded) |
+| `RecoLove_Blender_addon.zip` | the add-on for manual install in Blender |
+| `README.txt` | the in-app help as a text file |
+| `RecoLoveToolkit_source.zip` | the Python source |
+
+The script builds the add-on zip and the icon by itself (temporary files go to
+`_build/`, which can be deleted). Close `RecoLoveToolkit.exe` before
+rebuilding, or Windows will not let the old one be replaced. The version
+shown in the app is `VERSION` in `helptext.py`.
 
 | module | what it does |
 |---|---|
