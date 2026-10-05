@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+_build/
+build/
+dist/
+*.spec
+blender_addon/io_recolove.zip
+legacy/
+blender_addon/legado/
